@@ -55,7 +55,7 @@ public:
 
     // TODO 3: Override area().  Area of a circle = PI * r * r.
     //         Use override.
-    double area() const override { return 3.14 * radius * radius; }
+    double area() const override { return 3.14159265 * radius * radius; }
 
 };
 
@@ -97,6 +97,9 @@ public:
 //         Must work polymorphically (through Shape*).
 //         An empty vector returns 0.0.
 double totalArea(const std::vector<Shape*>& shapes) {
+    
+    if (shapes.size() == 0) return 0.0;
+    
     int sum = 0;
     for (Shape* shape : shapes) {
         sum += shape->area();
@@ -107,6 +110,9 @@ double totalArea(const std::vector<Shape*>& shapes) {
 // TODO 8: Return getName() of the shape with the LARGEST area.
 //         If the vector is empty, return "".
 std::string largestShapeName(const std::vector<Shape*>& shapes) {
+    
+    if (shapes.size() == 0) return "";
+    
     Shape* largestShape = shapes[0];
     
     for (Shape* shape : shapes) {
